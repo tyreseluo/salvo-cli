@@ -12,6 +12,7 @@ mod printer;
 mod project;
 mod templates;
 mod updater;
+mod visual_initializer;
 
 rust_i18n::i18n!("locales", fallback = "en");
 #[derive(Parser, Debug)]
@@ -24,12 +25,20 @@ struct Opts {
 #[derive(Parser, Debug)]
 enum SubCommand {
     New(NewCmd),
+    #[clap(name = "visual-initializer")]
+    VisualInitializer(VisualInitializerCmd),
 }
 #[derive(Parser, Debug, Clone)]
 pub struct NewCmd {
     pub project_name: String,
     #[clap(short, long)]
     lang: Option<String>,
+}
+
+#[derive(Parser, Debug, Clone)]
+pub struct VisualInitializerCmd {
+    #[clap(long, default_value_t = 7878)]
+    port: u16,
 }
 #[derive(Debug, Clone)]
 pub struct Project {
@@ -52,6 +61,9 @@ async fn main() -> Result<()> {
                 Ok(_) => (),
                 Err(e) => printer::error(e.to_string()),
             };
+        }
+        SubCommand::VisualInitializer(VisualInitializerCmd { port }) => {
+            visual_initializer::run(port).await?;
         }
     }
     Ok(())

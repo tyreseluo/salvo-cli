@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Salvo CLI Visual Initializer</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f6f3ed;
+        --card: #ffffff;
+        --text: #1f1d1a;
+        --muted: #6f6a63;
+        --accent: #d8603f;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: "Georgia", "Times New Roman", serif;
+        background: radial-gradient(circle at top, #fff6e8 0%, var(--bg) 55%, #e9e2d8 100%);
+        color: var(--text);
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 32px 16px;
+      }
+      .card {
+        width: min(720px, 92vw);
+        background: var(--card);
+        border: 1px solid #e4ddd4;
+        border-radius: 18px;
+        padding: 36px;
+        box-shadow: 0 24px 60px rgba(39, 30, 18, 0.14);
+      }
+      h1 {
+        margin: 0 0 12px;
+        font-size: clamp(26px, 3.2vw, 34px);
+        letter-spacing: 0.3px;
+      }
+      p {
+        margin: 0 0 10px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 18px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: #fff2ee;
+        color: var(--accent);
+        font-family: "Helvetica Neue", "Arial", sans-serif;
+        font-size: 13px;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <h1>Salvo CLI Visual Initializer</h1>
+      <p>This is a temporary local UI started by the CLI.</p>
+      <p>Next step: turn this into a configuration wizard.</p>
+      <div class="pill">Running locally</div>
+    </main>
+  </body>
+</html>
