@@ -3,12 +3,12 @@ use rust_embed::RustEmbed;
 use salvo::prelude::*;
 
 #[derive(RustEmbed)]
-#[folder = "assets/visual"]
-struct VisualAssets;
+#[folder = "initializer"]
+struct VisualInitializer;
 
 #[handler]
 async fn index(res: &mut Response) {
-    match VisualAssets::get("index.html") {
+    match VisualInitializer::get("index.html") {
         Some(file) => {
             let html = String::from_utf8_lossy(file.data.as_ref()).into_owned();
             res.render(Text::Html(html));
